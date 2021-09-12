@@ -71,27 +71,42 @@ function game() {
     const CHOICES = ["rock", "paper", "scissors"];
     // Create a variable roundsToPlay of type Number that starts with the value 5
     let roundsToPlay = 5;
+    // Create variables playerScore and computerScore of type Number that start with the value 0
+    let playerScore = 0;
+    let computerScore = 0;
 
     // Begin with i at 0 and add 1 to i on each pass until i is equal to or greater than roundsToPlay
     for (let i = 0; i < roundsToPlay; i++) {
         // Inside loop, determine computer and player choices, and the round winner
         let computerChoice = getComputerChoice(CHOICES);
-        console.log(`Computer: ${computerChoice}`);
+        // console.log(`Computer: ${computerChoice}`);
 
         let playerChoice = getPlayerChoice(CHOICES)
-        console.log(`Player: ${playerChoice}`);
+        // console.log(`Player: ${playerChoice}`);
 
         let result = checkWhoWon(playerChoice, computerChoice);
-        // Create variables playerScore and computerScore of type Number that start with the value 0
-        // if result is equal to "draw"
-        //    output draw
-        // else if result is equal to "player"
-        //    increase playerScore by 1
-        // else if result is equal to "computer"
-        //    increase computerScore by 1
 
-        console.log(result);
+        // if result is equal to "draw"
+        if (result === "draw") {
+            // Output "It's a draw."
+            console.log("It's a draw.");
+            // Othewise, if result is equal to "computer"
+        } else if (result === "computer") {
+            // increase computerScore by 1
+            computerScore++;
+            // Output "Computer wins"
+            console.log(`Computer wins. ${computerChoice} beats ${playerChoice}`);
+            // Otherwise, if result is equal to "player"
+        } else {
+            // increase playerScore by 1
+            playerScore++;
+            // output "You win!"
+            console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+        }
+
+        console.log(`Computer score: ${computerScore}\nPlayer score: ${playerScore}`);
     }
+
 }
 
 // Play the game
