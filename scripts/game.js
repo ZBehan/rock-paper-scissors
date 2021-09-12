@@ -1,7 +1,7 @@
 // Step 1: Computer chooses from rock, paper or scissors
 // getComputerChoice is a function that takes choicesArr as a parameter
-// choicesArr is an array
-// getComputerChoice returns a string
+// choicesArr is an Array
+// getComputerChoice returns a String
 function getComputerChoice(CHOICES) {
     // Create variable computerChoice of type String that starts with a blank string
     let computerChoice = "";
@@ -17,7 +17,7 @@ function getComputerChoice(CHOICES) {
 // Step 2: Player chooses from rock, paper or scissors
 // getPlayerChoice is a function that takes choicesArr as a parameter
 // choicesArr is an array
-// getPlayerChoice returns a string
+// getPlayerChoice returns a String
 function getPlayerChoice(CHOICES) {
     // Create variable playerInput of type String that starts with a blank string
     let playerInput = "";
@@ -42,30 +42,49 @@ function getPlayerChoice(CHOICES) {
 // Step 3: Check who won
 // checkWhoWon is a function that takes playerChoice and computerChoice as parameters
 // playerChoice and computerChoice are Strings
-// checkWhoWon returns a string
+// checkWhoWon returns a String
 function checkWhoWon(playerChoice, computerChoice) {
-    // if computerChoice and playerChoice are the same
+    // If computerChoice and playerChoice are the same
     if (playerChoice === computerChoice) {
         // draw
         return "draw";
-        // if computerChoice is rock and playerChoice is scissors
+        // If computerChoice is rock and playerChoice is scissors
     } else if (computerChoice === "rock" && playerChoice === "scissors") {
-        // computer wins
+        // Computer wins
         return "computer";
-        // if computerChoice is paper and playerChoice is rock
+        // If computerChoice is paper and playerChoice is rock
     } else if (computerChoice === "paper" && playerChoice === "rock") {
         // computer wins
         return "computer";
-        // if computerChoice is scissors and playerChoice is paper
+        // If computerChoice is scissors and playerChoice is paper
     } else if (computerChoice === "scissors" && playerChoice === "paper") {
-        // computer wins
+        // Computer wins
         return "computer";
     }
     return "player";
 }
 
+// Step 6: Determine an overall winner
+// pickOverallWinner is a function that takes computerScore and playerScore as parameters
+// computerSCore and playerScore are Numbers
+// pickOverallWinner returns a String
+function pickOverallWinner(computerScore, playerScore) {
+    // If computerScore is greater than playerScore
+    if (computerScore > playerScore) {
+        // Computer wins the game
+        return "The computer has won the game.";
+        // Otherwise, if playerScore is greater than computerScore
+    } else if (playerScore > computerScore) {
+        // Player wins the game
+        return "Congratulations! You've won the game!";
+        // If it's a draw
+    } else {
+        // Output "It's a draw, no-one won the game"
+        return "It was a draw. No-one won the game.";
+    }
+}
 
-// Step 4: Play five rounds of the game, keep score and determine an overall winner
+// Step 4 & 5: Play five rounds of the game, keep score
 function game() {
     // Create variable choicesArr of type Array that starts with the values: rock, paper, scissors
     const CHOICES = ["rock", "paper", "scissors"];
@@ -86,27 +105,29 @@ function game() {
 
         let result = checkWhoWon(playerChoice, computerChoice);
 
-        // if result is equal to "draw"
+        // If result is equal to "draw"
         if (result === "draw") {
             // Output "It's a draw."
             console.log("It's a draw.");
             // Othewise, if result is equal to "computer"
         } else if (result === "computer") {
-            // increase computerScore by 1
+            // Increase computerScore by 1
             computerScore++;
             // Output "Computer wins"
             console.log(`Computer wins. ${computerChoice} beats ${playerChoice}`);
             // Otherwise, if result is equal to "player"
         } else {
-            // increase playerScore by 1
+            // Increase playerScore by 1
             playerScore++;
-            // output "You win!"
+            // Output "You win!"
             console.log(`You win! ${playerChoice} beats ${computerChoice}`);
         }
 
         console.log(`Computer score: ${computerScore}\nPlayer score: ${playerScore}`);
     }
-
+    // Create variable overallWinner of type String to hold result of pickOverallWinner
+    let overallWinner = pickOverallWinner(computerScore, playerScore);
+    console.log(overallWinner);
 }
 
 // Play the game
