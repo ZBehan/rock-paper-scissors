@@ -48,19 +48,35 @@ function getPlayerChoice(CHOICES) {
 
 // checkWhoWon is a function that takes playerChoice and computerChoice as parameters
 // playerChoice and computerChoice are Strings
-
-// if computerChoice and playerChoice are the same
-// draw
-// if computerChoice is rock and playerChoice is scissors
-// computer wins
-// if computerChoice is paper and playerChoice is rock
-// computer wins
-// if computerChoice is scissors and playerChoice is paper
-// computer wins
-// else players wins
+function checkWhoWon(playerChoice, computerChoice) {
+    // if computerChoice and playerChoice are the same
+    if (playerChoice === computerChoice) {
+        // draw
+        return "draw";
+        // if computerChoice is rock and playerChoice is scissors
+    } else if (computerChoice === "rock" && playerChoice === "scissors") {
+        // computer wins
+        return "computer";
+        // if computerChoice is paper and playerChoice is rock
+    } else if (computerChoice === "paper" && playerChoice === "rock") {
+        // computer wins
+        return "computer";
+        // if computerChoice is scissors and playerChoice is paper
+    } else if (computerChoice === "scissors" && playerChoice === "paper") {
+        // computer wins
+        return "computer";
+    }
+    // else players wins
+    return "player";
+}
 
 
 // Put it all together
-console.log(`Computer: ${getComputerChoice(CHOICES)}`);
-console.log(`Player: ${getPlayerChoice(CHOICES)}`);
-// checkWhoWon();
+let computerChoice = getComputerChoice(CHOICES)
+console.log(`Computer: ${computerChoice}`);
+
+let playerChoice = getPlayerChoice(CHOICES)
+console.log(`Player: ${playerChoice}`);
+
+let result = checkWhoWon(playerChoice, computerChoice);
+console.log(result);
