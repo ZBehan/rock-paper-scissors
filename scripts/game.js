@@ -12,7 +12,7 @@ const CHOICES = ["rock", "paper", "scissors"];
 function getComputerChoice(CHOICES) {
     // Create variable computerChoice of type String that starts with a blank string
     let computerChoice = "";
-    // Create variable randNum of type Integer that starts with a random number between 0 and length of choicesArr
+    // Create variable randNum of type Number that starts with a random number between 0 and length of choicesArr
     let randNum = Math.floor(Math.random() * CHOICES.length);
     // Assign value at position of randNum in choicesArr to computerChoice
     computerChoice = CHOICES[randNum];
@@ -83,12 +83,21 @@ function checkWhoWon(playerChoice, computerChoice) {
 }
 
 
-// Put it all together
-let computerChoice = getComputerChoice(CHOICES)
-console.log(`Computer: ${computerChoice}`);
+// Step 4: Play five rounds of the game, keep score and determine an overall winner
+function game() {
+    // Create a variable roundsToPlay of type Number that starts with the value 5
+    let roundsToPlay = 5;
 
-let playerChoice = getPlayerChoice(CHOICES)
-console.log(`Player: ${playerChoice}`);
+    // Begin with i at 0 and add 1 to i on each pass until i is equal to or greater than roundsToPlay
+    for (let i = 0; i < roundsToPlay; i++) {
+        // Inside loop, determine computer and player choices, and the round winner
+        let computerChoice = getComputerChoice(CHOICES)
+        console.log(`Computer: ${computerChoice}`);
 
-let result = checkWhoWon(playerChoice, computerChoice);
-console.log(result);
+        let playerChoice = getPlayerChoice(CHOICES)
+        console.log(`Player: ${playerChoice}`);
+
+        let result = checkWhoWon(playerChoice, computerChoice);
+        console.log(result);
+    }
+}
