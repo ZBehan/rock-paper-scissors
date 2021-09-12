@@ -23,16 +23,25 @@ function getComputerChoice(CHOICES) {
 // Step 2: Player chooses from rock, paper or scissors
 // getPlayerChoice is a function that takes choicesArr as a parameter
 // choicesArr is an array
+function getPlayerChoice(CHOICES) {
+    // Create variable playerInput of type String that starts with a blank string
+    let playerInput = "";
+    // Output what options the player has to select from
+    // Ask player which option they select and store in playerInput
+    playerInput = prompt("Please choose from: rock, paper or scissors");
+    // Convert playerInput to lowercase
+    playerInput = playerInput.toLowerCase();
 
-// Create variable playerInput of type String that starts with a blank string
-// Output what options the player has to select from
-// Ask player which option they select and store in playerInput
-// Convert playerInput to lowercase
+    // while playerInput is not in choicesArr
+    while (!CHOICES.includes(playerInput)) {
+        // ask user again for selection
+        playerInput = prompt(`Your selection: ${playerInput} is not valid.\nPlease choose from: rock, paper or scissors`);
+        playerInput = playerInput.toLowerCase();
+    }
 
-// while playerInput is not in choicesArr
-// ask user again for selection
-
-// return playerInput
+    // return playerInput
+    return playerInput;
+}
 
 
 // Step 3: Check who won
@@ -52,6 +61,6 @@ function getComputerChoice(CHOICES) {
 
 
 // Put it all together
-console.log(getComputerChoice(CHOICES));
-// getPlayerChoice(CHOICES);
+console.log(`Computer: ${getComputerChoice(CHOICES)}`);
+console.log(`Player: ${getPlayerChoice(CHOICES)}`);
 // checkWhoWon();
