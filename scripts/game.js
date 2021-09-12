@@ -8,6 +8,7 @@ const CHOICES = ["rock", "paper", "scissors"];
 // Step 1: Computer chooses from rock, paper or scissors
 // getComputerChoice is a function that takes choicesArr as a parameter
 // choicesArr is an array
+// getComputerChoice returns a string
 function getComputerChoice(CHOICES) {
     // Create variable computerChoice of type String that starts with a blank string
     let computerChoice = "";
@@ -23,6 +24,7 @@ function getComputerChoice(CHOICES) {
 // Step 2: Player chooses from rock, paper or scissors
 // getPlayerChoice is a function that takes choicesArr as a parameter
 // choicesArr is an array
+// getPlayerChoice returns a string
 function getPlayerChoice(CHOICES) {
     // Create variable playerInput of type String that starts with a blank string
     let playerInput = "";
@@ -45,12 +47,12 @@ function getPlayerChoice(CHOICES) {
 
 
 // Step 3: Check who won
-
 // checkWhoWon is a function that takes playerChoice and computerChoice as parameters
 // playerChoice and computerChoice are Strings
+// checkWhoWon returns a string
 function checkWhoWon(playerChoice, computerChoice) {
-    // Create variable playerWins of type Boolean with start value of false
-    let playerWins = false;
+    // Create variable playerWins of type Boolean with start value of true
+    let playerWins = true;
 
     // if computerChoice and playerChoice are the same
     if (playerChoice === computerChoice) {
@@ -68,9 +70,6 @@ function checkWhoWon(playerChoice, computerChoice) {
     } else if (computerChoice === "scissors" && playerChoice === "paper") {
         // computer wins
         playerWins = false;
-        // else players wins
-    } else {
-        playerWins = true;
     }
 
     // if the player wins
