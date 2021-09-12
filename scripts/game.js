@@ -35,7 +35,7 @@ function getPlayerChoice(CHOICES) {
     // while playerInput is not in choicesArr
     while (!CHOICES.includes(playerInput)) {
         // ask user again for selection
-        playerInput = prompt(`Your selection: ${playerInput} is not valid.\nPlease choose from: rock, paper or scissors`);
+        playerInput = prompt(`Your selection "${playerInput}" is not valid.\nPlease choose from: rock, paper or scissors`);
         playerInput = playerInput.toLowerCase();
     }
 
@@ -49,25 +49,38 @@ function getPlayerChoice(CHOICES) {
 // checkWhoWon is a function that takes playerChoice and computerChoice as parameters
 // playerChoice and computerChoice are Strings
 function checkWhoWon(playerChoice, computerChoice) {
+    // Create variable playerWins of type Boolean with start value of false
+    let playerWins = false;
+
     // if computerChoice and playerChoice are the same
     if (playerChoice === computerChoice) {
         // draw
-        return "draw";
+        return "It's a draw!"
         // if computerChoice is rock and playerChoice is scissors
     } else if (computerChoice === "rock" && playerChoice === "scissors") {
         // computer wins
-        return "computer";
+        playerWins = false;
         // if computerChoice is paper and playerChoice is rock
     } else if (computerChoice === "paper" && playerChoice === "rock") {
         // computer wins
-        return "computer";
+        playerWins = false;
         // if computerChoice is scissors and playerChoice is paper
     } else if (computerChoice === "scissors" && playerChoice === "paper") {
         // computer wins
-        return "computer";
+        playerWins = false;
+        // else players wins
+    } else {
+        playerWins = true;
     }
-    // else players wins
-    return "player";
+
+    // if the player wins
+    if (playerWins) {
+        // then return: "You win! playerChoice beats computerChoice"
+        return `You win! ${playerChoice} beats ${computerChoice}.`
+    } else {
+        // otherwise, return "Computer wins! computerChoice beats playerChoice"
+        return `Computer wins. ${computerChoice} beats ${playerChoice}.`
+    }
 }
 
 
