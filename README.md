@@ -22,3 +22,6 @@ steps to help you understand.
 ### 3. Divide and conquer
 Pick a step from the algorithm that you created from the planning step and start coding. Don't try to code the whole thing at once. One step at time 
 is enough. Test each step works as you implement it.
+
+## What I'm proud of
+I'm proud of my comments. Following through and planning out what to do meant I could use the steps from the plan as my comments. No need to go back and try to explain what happened.
