@@ -58,3 +58,20 @@ function pickOverallWinner(computerScore, playerScore) {
         return "It was a draw. No-one won the game.";
     }
 }
+
+
+// Add eventlisteners to the buttons
+const rockButton = document.getElementById('rockButton');
+rockButton.addEventListener('mousedown', function (e) {
+    console.log(rockButton);
+});
+
+const paperButton = document.getElementById('paperButton');
+paperButton.addEventListener('click', function (e) {
+    console.log(e.target);
+});
+
+const scissorsButton = document.getElementById('scissorsButton');
+scissorsButton.addEventListener('click', function (e) {
+    console.log(e.target);
+});
