@@ -1,4 +1,4 @@
-// Step 1: Computer chooses from rock, paper or scissors
+// Computer chooses from rock, paper or scissors
 // getComputerChoice is a function that takes choicesArr as a parameter
 // choicesArr is an Array
 // getComputerChoice returns a String
@@ -9,26 +9,7 @@ function getComputerChoice(CHOICES) {
     return computerChoice;
 }
 
-
-// Step 2: Player chooses from rock, paper or scissors
-// getPlayerChoice is a function that takes choicesArr as a parameter
-// choicesArr is an array
-// getPlayerChoice returns a String
-function getPlayerChoice(CHOICES) {
-    let playerInput = "";
-    playerInput = prompt("Please choose from: rock, paper or scissors");
-    playerInput = playerInput.toLowerCase();
-
-    while (!CHOICES.includes(playerInput)) {
-        playerInput = prompt(`Your selection "${playerInput}" is not valid.\nPlease choose from: rock, paper or scissors`);
-        playerInput = playerInput.toLowerCase();
-    }
-
-    return playerInput;
-}
-
-
-// Step 3: Check who won
+// Check who won
 // checkWhoWon is a function that takes playerChoice and computerChoice as parameters
 // playerChoice and computerChoice are Strings
 // checkWhoWon returns a String
@@ -45,7 +26,7 @@ function checkWhoWon(playerChoice, computerChoice) {
     return "player";
 }
 
-// Step 6: Determine an overall winner
+// Determine an overall winner
 // pickOverallWinner is a function that takes computerScore and playerScore as parameters
 // computerScore and playerScore are Numbers
 // pickOverallWinner returns a String
@@ -59,19 +40,30 @@ function pickOverallWinner(computerScore, playerScore) {
     }
 }
 
+function playRound(playerChoice) {
+    const CHOICES = ['rock', 'paper', 'scissors'];
+    const computerChoice = getComputerChoice(CHOICES);
+    console.log(checkWhoWon(playerChoice, computerChoice));
+}
 
-// Add eventlisteners to the buttons
-const rockButton = document.getElementById('rockButton');
-rockButton.addEventListener('mousedown', function (e) {
-    console.log(rockButton);
-});
+function playGame() {
 
-const paperButton = document.getElementById('paperButton');
-paperButton.addEventListener('click', function (e) {
-    console.log(e.target);
-});
+    // Add eventlisteners to the buttons
+    const rockButton = document.getElementById('rockButton');
+    rockButton.addEventListener('click', function (e) {
+        playRound('rock');
+    });
 
-const scissorsButton = document.getElementById('scissorsButton');
-scissorsButton.addEventListener('click', function (e) {
-    console.log(e.target);
-});
+    const paperButton = document.getElementById('paperButton');
+    paperButton.addEventListener('click', function (e) {
+        playRound('paper');
+    });
+
+    const scissorsButton = document.getElementById('scissorsButton');
+    scissorsButton.addEventListener('click', function (e) {
+        playRound('scissors');
+    });
+
+}
+
+playGame();
