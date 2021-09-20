@@ -1,3 +1,10 @@
+// Get output HTML elements
+const playerScoreOutput = document.getElementById('playerScore');
+const computerScoreOutput = document.getElementById('computerScore');
+
+let playerScore = 0;
+let computerScore = 0;
+
 // Computer chooses from rock, paper or scissors
 // getComputerChoice is a function that takes choicesArr as a parameter
 // choicesArr is an Array
@@ -43,27 +50,34 @@ function pickOverallWinner(computerScore, playerScore) {
 function playRound(playerChoice) {
     const CHOICES = ['rock', 'paper', 'scissors'];
     const computerChoice = getComputerChoice(CHOICES);
-    console.log(checkWhoWon(playerChoice, computerChoice));
+
+    let result = checkWhoWon(playerChoice, computerChoice);
+
+    if (result === "draw") {
+        console.log("It's a draw.");
+    } else if (result === "computer") {
+        computerScore++;
+        console.log(`Computer wins. ${computerChoice} beats ${playerChoice}`);
+        computerScoreOutput.textContent = computerScore;
+    } else {
+        playerScore++;
+        console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+        playerScoreOutput.textContent = playerScore;
+    }
 }
 
-function playGame() {
+// Add eventlisteners to the buttons
+const rockButton = document.getElementById('rockButton');
+rockButton.addEventListener('click', function (e) {
+    playRound('rock');
+});
 
-    // Add eventlisteners to the buttons
-    const rockButton = document.getElementById('rockButton');
-    rockButton.addEventListener('click', function (e) {
-        playRound('rock');
-    });
+const paperButton = document.getElementById('paperButton');
+paperButton.addEventListener('click', function (e) {
+    playRound('paper');
+});
 
-    const paperButton = document.getElementById('paperButton');
-    paperButton.addEventListener('click', function (e) {
-        playRound('paper');
-    });
-
-    const scissorsButton = document.getElementById('scissorsButton');
-    scissorsButton.addEventListener('click', function (e) {
-        playRound('scissors');
-    });
-
-}
-
-playGame();
+const scissorsButton = document.getElementById('scissorsButton');
+scissorsButton.addEventListener('click', function (e) {
+    playRound('scissors');
+});
