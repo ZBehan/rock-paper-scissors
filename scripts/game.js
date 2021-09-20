@@ -5,6 +5,7 @@ const outputString = document.getElementById('outputString');
 
 let playerScore = 0;
 let computerScore = 0;
+const CHOICES = ['rock', 'paper', 'scissors'];
 
 // Computer chooses from rock, paper or scissors
 // getComputerChoice is a function that takes choicesArr as a parameter
@@ -38,7 +39,7 @@ function checkWhoWon(playerChoice, computerChoice) {
 // pickOverallWinner is a function that takes computerScore and playerScore as parameters
 // computerScore and playerScore are Numbers
 // pickOverallWinner returns a String
-function pickOverallWinner(computerScore, playerScore) {
+function pickOverallWinner() {
     if (computerScore > playerScore) {
         return "The computer has won the game.";
     } else if (playerScore > computerScore) {
@@ -49,7 +50,6 @@ function pickOverallWinner(computerScore, playerScore) {
 }
 
 function playRound(playerChoice) {
-    const CHOICES = ['rock', 'paper', 'scissors'];
     const computerChoice = getComputerChoice(CHOICES);
 
     let result = checkWhoWon(playerChoice, computerChoice);
@@ -65,6 +65,14 @@ function playRound(playerChoice) {
         outputString.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
         playerScoreOutput.textContent = playerScore;
     }
+
+    if (playerScore >= 5 || computerScore >= 5) {
+        outputString.textContent = pickOverallWinner();
+        rockButton.setAttribute("disabled", "");
+        paperButton.setAttribute("disabled", "");
+        scissorsButton.setAttribute("disabled", "");
+    }
+
 }
 
 // Add eventlisteners to the buttons
