@@ -1,6 +1,7 @@
 // Get output HTML elements
 const playerScoreOutput = document.getElementById('playerScore');
 const computerScoreOutput = document.getElementById('computerScore');
+const outputString = document.getElementById('outputString');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -54,14 +55,14 @@ function playRound(playerChoice) {
     let result = checkWhoWon(playerChoice, computerChoice);
 
     if (result === "draw") {
-        console.log("It's a draw.");
+        outputString.textContent = "It's a draw.";
     } else if (result === "computer") {
         computerScore++;
-        console.log(`Computer wins. ${computerChoice} beats ${playerChoice}`);
+        outputString.textContent = `Computer wins. ${computerChoice} beats ${playerChoice}`;
         computerScoreOutput.textContent = computerScore;
     } else {
         playerScore++;
-        console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+        outputString.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
         playerScoreOutput.textContent = playerScore;
     }
 }
