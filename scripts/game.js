@@ -53,9 +53,12 @@ function playRound(playerChoice) {
 
     if (playerScore >= 5 || computerScore >= 5) {
         winnerOutput.textContent = showOverallGameWinner();
-        rockButton.setAttribute("disabled", "");
-        paperButton.setAttribute("disabled", "");
-        scissorsButton.setAttribute("disabled", "");
+        rockButton.disabled = true;
+        paperButton.disabled = true;
+        scissorsButton.disabled = true;
+        resetButton.classList.add("green");
+        resetButton.classList.remove("reset");
+        resetButton.textContent = "Play Again"
     }
 }
 
@@ -67,9 +70,13 @@ function resetGame() {
 
     winnerOutput.textContent = "Let's play";
 
-    rockButton.removeAttribute("disabled");
-    paperButton.removeAttribute("disabled");
-    scissorsButton.removeAttribute("disabled");
+    rockButton.disabled = false;
+    paperButton.disabled = false;
+    scissorsButton.disabled = false;
+
+    resetButton.classList.add("reset");
+    resetButton.classList.remove("green");
+    resetButton.textContent = "Reset";
 }
 
 // Add eventlisteners to the buttons
