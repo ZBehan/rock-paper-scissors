@@ -59,6 +59,19 @@ function playRound(playerChoice) {
     }
 }
 
+function resetGame() {
+    playerScore = 0;
+    playerScoreOutput.textContent = playerScore;
+    computerScore = 0;
+    computerScoreOutput.textContent = computerScore;
+
+    winnerOutput.textContent = "Let's play";
+
+    rockButton.removeAttribute("disabled");
+    paperButton.removeAttribute("disabled");
+    scissorsButton.removeAttribute("disabled");
+}
+
 // Add eventlisteners to the buttons
 const rockButton = document.getElementById('rockButton');
 rockButton.addEventListener('click', function (e) {
@@ -73,4 +86,9 @@ paperButton.addEventListener('click', function (e) {
 const scissorsButton = document.getElementById('scissorsButton');
 scissorsButton.addEventListener('click', function (e) {
     playRound('scissors');
+});
+
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', function (e) {
+    resetGame();
 });
