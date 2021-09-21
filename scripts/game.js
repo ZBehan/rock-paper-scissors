@@ -1,28 +1,18 @@
 // Get output HTML elements
 const playerScoreOutput = document.getElementById('playerScore');
 const computerScoreOutput = document.getElementById('computerScore');
-const outputString = document.getElementById('outputString');
+const winnerOutput = document.getElementById('winnerOutput');
 
 let playerScore = 0;
 let computerScore = 0;
-const CHOICES = ['rock', 'paper', 'scissors'];
 
-// Computer chooses from rock, paper or scissors
-// getComputerChoice is a function that takes choicesArr as a parameter
-// choicesArr is an Array
-// getComputerChoice returns a String
-function getComputerChoice(CHOICES) {
-    let computerChoice = "";
-    let randNum = Math.floor(Math.random() * CHOICES.length);
-    computerChoice = CHOICES[randNum];
-    return computerChoice;
+function getComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randNum = Math.floor(Math.random() * choices.length);
+    return choices[randNum];
 }
 
-// Check who won
-// checkWhoWon is a function that takes playerChoice and computerChoice as parameters
-// playerChoice and computerChoice are Strings
-// checkWhoWon returns a String
-function checkWhoWon(playerChoice, computerChoice) {
+function checkWhoWonTheRound(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         return "draw";
     } else if (computerChoice === "rock" && playerChoice === "scissors") {
@@ -35,11 +25,7 @@ function checkWhoWon(playerChoice, computerChoice) {
     return "player";
 }
 
-// Determine an overall winner
-// pickOverallWinner is a function that takes computerScore and playerScore as parameters
-// computerScore and playerScore are Numbers
-// pickOverallWinner returns a String
-function pickOverallWinner() {
+function showOverallGameWinner() {
     if (computerScore > playerScore) {
         return "The computer has won the game.";
     } else if (playerScore > computerScore) {
@@ -50,29 +36,27 @@ function pickOverallWinner() {
 }
 
 function playRound(playerChoice) {
-    const computerChoice = getComputerChoice(CHOICES);
-
-    let result = checkWhoWon(playerChoice, computerChoice);
+    const computerChoice = getComputerChoice();
+    const result = checkWhoWonTheRound(playerChoice, computerChoice);
 
     if (result === "draw") {
-        outputString.textContent = "It's a draw.";
+        winnerOutput.textContent = "It's a draw.";
     } else if (result === "computer") {
         computerScore++;
-        outputString.textContent = `Computer wins. ${computerChoice} beats ${playerChoice}`;
+        winnerOutput.textContent = `Computer wins. ${computerChoice} beats ${playerChoice}`;
         computerScoreOutput.textContent = computerScore;
     } else {
         playerScore++;
-        outputString.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
+        winnerOutput.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
         playerScoreOutput.textContent = playerScore;
     }
 
     if (playerScore >= 5 || computerScore >= 5) {
-        outputString.textContent = pickOverallWinner();
+        winnerOutput.textContent = showOverallGameWinner();
         rockButton.setAttribute("disabled", "");
         paperButton.setAttribute("disabled", "");
         scissorsButton.setAttribute("disabled", "");
     }
-
 }
 
 // Add eventlisteners to the buttons
