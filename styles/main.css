@@ -58,8 +58,8 @@ body {
     color: rgb(90, 90, 90);
 }
 
-.result.label {
-    margin: 1em;
+.result {
+    margin: 0em 1em 1em 1em;
 }
 
 .choices {
