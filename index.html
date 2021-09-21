@@ -6,29 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <script src="scripts/game.js" defer></script>
 </head>
 
 <body>
     <div class="container">
+        <h1 class="main-title">Rock, Paper, Scissors</h1>
+        <p class="subtitle">First to five wins the game.</p>
         <div class="scores">
-            <div class="score">
-                <div id="playerScore">0</div>
-                Player
+            <div class="score-container">
+                <div id="playerScore" class="score">0</div>
+                <div class="label">Player</div>
             </div>
-            <div class="score">
-                <div id="computerScore">0</div>
-                Computer
+            <div class="score-container">
+                <div id="computerScore" class="score">0</div>
+                <div class="label">Computer</div>
             </div>
         </div>
-        <div id="winnerOutput">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div id="winnerOutput" class="result label">Start the game by clicking on your choice.</div>
         <div class="choices">
-            <button id="rockButton">Rock</button>
-            <button id="paperButton">Paper</button>
-            <button id="scissorsButton">Scissors</button>
-            <button id="resetButton">Reset</button>
+            <button id="rockButton" class="green">Rock</button>
+            <button id="paperButton" class="blue">Paper</button>
+            <button id="scissorsButton" class="yellow">Scissors</button>
         </div>
+        <button id="resetButton" class="reset">Reset</button>
     </div>
 
 </body>
