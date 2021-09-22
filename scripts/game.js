@@ -2,10 +2,11 @@
 const playerScoreOutput = document.getElementById('playerScore');
 const computerScoreOutput = document.getElementById('computerScore');
 const winnerOutput = document.getElementById('winnerOutput');
-const choicesContainer = document.querySelector('.choices');
+const roundNumberOutput = document.getElementById('roundNumber');
 
 let playerScore = 0;
 let computerScore = 0;
+let roundNumber = 1;
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -39,6 +40,9 @@ function showOverallGameWinner() {
 function playRound(playerChoice) {
     let computerChoice = getComputerChoice();
     const result = checkWhoWonTheRound(playerChoice, computerChoice);
+
+    roundNumber++;
+    roundNumberOutput.textContent = roundNumber;
 
     if (result === "draw") {
         winnerOutput.textContent = "It's a draw.";
@@ -74,6 +78,9 @@ function resetGame() {
     playerScoreOutput.textContent = playerScore;
     computerScore = 0;
     computerScoreOutput.textContent = computerScore;
+
+    roundNumber = 1;
+    roundNumberOutput.textContent = roundNumber;
 
     winnerOutput.textContent = "Let's play";
 
