@@ -17,11 +17,11 @@ function getComputerChoice() {
 function checkWhoWonTheRound(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         return "draw";
-    } else if (computerChoice === "rock" && playerChoice === "scissors") {
-        return "computer";
-    } else if (computerChoice === "paper" && playerChoice === "rock") {
-        return "computer";
-    } else if (computerChoice === "scissors" && playerChoice === "paper") {
+    } else if (
+        (computerChoice === "rock" && playerChoice === "scissors")
+        || (computerChoice === "paper" && playerChoice === "rock")
+        || (computerChoice === "scissors" && playerChoice === "paper")
+    ) {
         return "computer";
     }
     return "player";
