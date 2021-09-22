@@ -45,7 +45,7 @@ function playRound(playerChoice) {
     roundNumberOutput.textContent = roundNumber;
 
     if (result === "draw") {
-        winnerOutput.textContent = "It's a draw.";
+        winnerOutput.textContent = `It's a draw. You both chose ${playerChoice}.`;
     } else if (result === "computer") {
         computerScore++;
         computerChoice = convertFirstLetterToUppercase(computerChoice);
