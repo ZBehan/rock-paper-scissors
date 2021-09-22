@@ -28,6 +28,8 @@ body {
 }
 
 .subtitle {
+    display: flex;
+    align-items: center;
     color: rgb(90, 90, 90);
 }
 
@@ -128,4 +130,9 @@ button:disabled {
     background-color: #f44336;
     border-color: #f44336;
     color: white;
+}
+
+strong {
+    font-family: 'Halant', serif;
+    font-size: 1.25em;
 }
