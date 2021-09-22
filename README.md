@@ -2,7 +2,7 @@
 This is my second project following The Odin Project (www.theodinproject.com).
 
 ## Objective
-To create a game of rock, paper, scissors. A game is played until a player wins 5 rounds.
+To create a game of rock, paper, scissors. A game is played until a player wins 5 rounds. All inputs and outputs are done through the implementation of HTML, CSS and JavaScript.
 
 ## What did I learn?
 ### Plan before starting to code
