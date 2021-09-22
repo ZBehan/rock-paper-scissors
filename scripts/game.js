@@ -55,14 +55,18 @@ function playRound(playerChoice) {
     }
 
     if (playerScore >= 5 || computerScore >= 5) {
-        winnerOutput.textContent = showOverallGameWinner();
-        rockButton.disabled = true;
-        paperButton.disabled = true;
-        scissorsButton.disabled = true;
-        resetButton.classList.add("green");
-        resetButton.classList.remove("reset");
-        resetButton.textContent = "Play Again";
+        endGame();
     }
+}
+
+function endGame() {
+    winnerOutput.textContent = showOverallGameWinner();
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
+    resetButton.classList.add("green");
+    resetButton.classList.remove("reset");
+    resetButton.textContent = "Play Again";
 }
 
 function resetGame() {
