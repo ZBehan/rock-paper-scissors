@@ -1,8 +1,8 @@
 // Get output HTML elements
-const playerScoreOutput = document.getElementById('playerScore');
-const computerScoreOutput = document.getElementById('computerScore');
-const winnerOutput = document.getElementById('winnerOutput');
-const roundNumberOutput = document.getElementById('roundNumber');
+const playerScoreOutput = document.getElementById('player-score');
+const computerScoreOutput = document.getElementById('computer-score');
+const winnerOutput = document.getElementById('winner-output');
+const roundNumberOutput = document.getElementById('round-number');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -98,22 +98,22 @@ function convertFirstLetterToUppercase(str) {
 }
 
 // Add eventlisteners to the buttons
-const rockButton = document.getElementById('rockButton');
+const rockButton = document.getElementById('rock-button');
 rockButton.addEventListener('click', function (e) {
     playRound('rock');
 });
 
-const paperButton = document.getElementById('paperButton');
+const paperButton = document.getElementById('paper-button');
 paperButton.addEventListener('click', function (e) {
     playRound('paper');
 });
 
-const scissorsButton = document.getElementById('scissorsButton');
+const scissorsButton = document.getElementById('scissors-button');
 scissorsButton.addEventListener('click', function (e) {
     playRound('scissors');
 });
 
-const resetButton = document.getElementById('resetButton');
+const resetButton = document.getElementById('reset-button');
 resetButton.addEventListener('click', function (e) {
     resetGame();
 });
