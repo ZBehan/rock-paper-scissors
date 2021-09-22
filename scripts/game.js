@@ -2,6 +2,7 @@
 const playerScoreOutput = document.getElementById('playerScore');
 const computerScoreOutput = document.getElementById('computerScore');
 const winnerOutput = document.getElementById('winnerOutput');
+const choicesContainer = document.querySelector('.choices');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -36,18 +37,20 @@ function showOverallGameWinner() {
 }
 
 function playRound(playerChoice) {
-    const computerChoice = getComputerChoice();
+    let computerChoice = getComputerChoice();
     const result = checkWhoWonTheRound(playerChoice, computerChoice);
 
     if (result === "draw") {
         winnerOutput.textContent = "It's a draw.";
     } else if (result === "computer") {
         computerScore++;
-        winnerOutput.textContent = `Computer wins. ${computerChoice} beats ${playerChoice}`;
+        computerChoice = convertFirstLetterToUppercase(computerChoice);
+        winnerOutput.textContent = `Computer wins. ${computerChoice} beats ${playerChoice}.`;
         computerScoreOutput.textContent = computerScore;
     } else {
         playerScore++;
-        winnerOutput.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
+        playerChoice = convertFirstLetterToUppercase(playerChoice);
+        winnerOutput.textContent = `You win! ${playerChoice} beats ${computerChoice}.`;
         playerScoreOutput.textContent = playerScore;
     }
 
@@ -58,7 +61,7 @@ function playRound(playerChoice) {
         scissorsButton.disabled = true;
         resetButton.classList.add("green");
         resetButton.classList.remove("reset");
-        resetButton.textContent = "Play Again"
+        resetButton.textContent = "Play Again";
     }
 }
 
@@ -77,6 +80,10 @@ function resetGame() {
     resetButton.classList.add("reset");
     resetButton.classList.remove("green");
     resetButton.textContent = "Reset";
+}
+
+function convertFirstLetterToUppercase(str) {
+    return str.slice(0, 1).toUpperCase() + str.slice(1);
 }
 
 // Add eventlisteners to the buttons
